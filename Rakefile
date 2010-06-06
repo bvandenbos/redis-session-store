@@ -26,7 +26,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency "activesupport"
   s.add_dependency "actionpack"
   s.require_path = 'lib'
-  s.files = %w(README.md Rakefile) + Dir.glob("{lib}/**/*")
+  s.files = %w(README.md Rakefile) + Dir.glob("{lib}/**/*") + Dir.glob("{test}/**/*")
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
