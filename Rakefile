@@ -2,6 +2,15 @@ require 'rubygems'
 require 'rake/gempackagetask'
 require 'rubygems/specification'
 
+task :default => :test
+
+desc "Run tests"
+task :test do
+  Dir['test/*_test.rb'].each do |f|
+    require f
+  end
+end
+
 spec = Gem::Specification.new do |s|
   s.name = 'redis-session-store'
   s.version = '0.1.6'
@@ -13,7 +22,9 @@ spec = Gem::Specification.new do |s|
   s.authors = "Mathias Meyer"
   s.email = "meyer@paperplanes.de"
   s.homepage = "http://github.com/mattmatt/redis-session-store"
-  s.add_dependency "redis"
+  s.add_dependency "redis", ">=2.0.1"
+  s.add_dependency "activesupport"
+  s.add_dependency "actionpack"
   s.require_path = 'lib'
   s.files = %w(README.md Rakefile) + Dir.glob("{lib}/**/*")
 end
