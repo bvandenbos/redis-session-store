@@ -1,6 +1,6 @@
 require 'redis'
-require 'activesupport'
-require 'actionpack'
+require 'active_support'
+require 'action_pack'
 require 'action_controller'
 
 # Redis session storage for Rails, and for Rails only. Derived from
